@@ -25,12 +25,13 @@ function GameOn(){
     pictures.push(...pictures);
 
     function generate(p) {
-        const c = p.map((imageURL,index) => ({
-            id: imageURL+index,
-            imageURL: '/dist/fonts/' + imageURL,
+        const c = p.map((image,index) => ({
+            id: image +" "+ index,
+            imageURL: image,
             isFlipped: false,
             canFlip: true
         }));
+        // console.log("c",c);
         return c.sort(()=> Math.random() - 0.5);
     };
 
@@ -107,7 +108,6 @@ function GameOn(){
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
-    // console.log("cards",cards);
 
     return(
         <View id='gameOn' >
