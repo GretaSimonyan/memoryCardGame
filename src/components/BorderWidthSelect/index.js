@@ -11,7 +11,7 @@ function BorderWidthSelect (){
 
     const handleNumberChange = e => {
         dispatch({
-            type: "SET_Width",
+            type: "SET_WIDTH",
             width: widthArr[e.target.value]
         })
     }

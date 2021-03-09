@@ -11,7 +11,7 @@ function BorderHeightSelect (){
 
     const handleNumberChange = e => {
         dispatch({
-            type: "SET_Height",
+            type: "SET_HEIGHT",
             height: heightArr[e.target.value]
         })
     }
