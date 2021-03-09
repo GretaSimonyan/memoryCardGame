@@ -13,7 +13,7 @@ function Cover (){
    
     return( 
         <Store>
-            <View flex alignI='center' justC='space-around' >
+            <View id='cover' flex alignI='center' justC='space-around' >
                 <PlayersSelect />
                 <BorderSizeSelect />
             </View>
