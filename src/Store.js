@@ -6,6 +6,7 @@ const initialState = {
     width: 2,
     height: 2,
     current: "A",
+    play: false,
     error: null
 };
 

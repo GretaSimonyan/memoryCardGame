@@ -5,12 +5,12 @@ const Reducer = (state, action) => {
                 ...state,
                 plValue: action.plValue
             };
-        case 'SET_Width':
+        case 'SET_WIDTH':
             return {
                 ...state,
                 width: action.width
             };
-        case 'SET_Height':
+        case 'SET_HEIGHT':
             return {
                 ...state,
                 height: action.height
@@ -19,6 +19,11 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 current: action.current
+            };
+        case 'SET_PLAY':
+            return {
+                ...state,
+                play: action.play
             };
         // case 'REMOVE':
         //     return {
