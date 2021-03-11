@@ -6,7 +6,6 @@ import { Context } from '../../Store';
 
 function BorderWidthSelect (){
     const [state, dispatch] = useContext(Context);
-
     const widthArr = [2,3,4,5,6,7,8];
 
     const handleNumberChange = e => {
@@ -14,7 +13,7 @@ function BorderWidthSelect (){
             type: "SET_WIDTH",
             width: widthArr[e.target.value]
         })
-    }
+    };
 
     return(
         <View flex alignI='center' justC='space-between'>
@@ -22,7 +21,7 @@ function BorderWidthSelect (){
             <View id='height' m='0 10px'>
                 <select onChange={e => handleNumberChange(e)}>
                     {
-                        widthArr.map((num,key)=> 
+                        widthArr.map((num=state.width,key)=> 
                             <option key={key} value={key}>
                                 {num}
                             </option>
