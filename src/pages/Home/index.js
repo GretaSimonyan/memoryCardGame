@@ -1,18 +1,17 @@
 import React from "react";
 import {
     View
-}from '../../styled';
+} from '../../styled';
 import {
     Header,
     // Cover,
-    Border,
+    // Border,
+    PlayButton,
     PlayersSelect,
     BorderSizeSelect
-}from '../../components';
+} from '../../components';
 
 import Store from '../../Store';
-
-
 
 function Home (){
     return(
@@ -23,8 +22,9 @@ function Home (){
                 <PlayersSelect />
                 <BorderSizeSelect />
             </View>
-            <Border/>
+            <PlayButton/>
+            {/* <Border/> */}
         </Store>
     )
 }
-export default Home
+export default Home;
