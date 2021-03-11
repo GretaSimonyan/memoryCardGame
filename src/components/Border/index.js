@@ -1,9 +1,8 @@
 import React from "react";
 import {
     View
-}from '../../styled';
+} from '../../styled';
 import PlayersNumber from '../PlayersNumber';
-// import BorderSize from '../BorderSize';
 import GameOn from '../GameOn';
 
 function Border(){
@@ -18,7 +17,6 @@ function Border(){
         >
             <View fontSize='23px' op='0.5'> Border </View>
             <PlayersNumber/> 
-            {/* <BorderSize/> */}
             <GameOn/>
         </View>
     )
