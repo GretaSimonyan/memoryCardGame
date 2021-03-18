@@ -31,7 +31,7 @@ function GameOn(){
             isFlipped: false,
             canFlip: true
         }));
-        // console.log("c",c);
+        console.log("c",c);
         return c.sort(()=> Math.random() - 0.5);
     };
 
@@ -108,22 +108,20 @@ function GameOn(){
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
-
+    console.log(cards)
     return(
-        <View id='gameOn' >
-            <View flex fW='wrap' justC='space-around' m='0 auto' w='80%'>
-                {cards.map((pic,index) => 
-                    <Item 
-                        bgImg={pic.imageURL} 
-                        key={pic+index} 
-                        onClick={() => handleClick(pic)}
-                        isFlipped={pic.isFlipped}
-                        bgSize='cover'
-                        bgPos='center'
-                        bgRep='no-repeat'
-                    />)
-                }
-            </View>
+        <View id='gameOn' flex fW='wrap' justC='space-around' m='0 auto' w='80%'>
+            {cards.map((pic,index) => 
+                <Item 
+                    bgImg={pic.imageURL} 
+                    key={pic+index} 
+                    onClick={() => handleClick(pic)}
+                    isFlipped={pic.isFlipped}
+                    bgSize='cover'
+                    bgPos='center'
+                    bgRep='no-repeat'
+                />)
+            }
         </View>
     )
 }
