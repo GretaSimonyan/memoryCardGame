@@ -10,7 +10,7 @@ function Border(){
         <View id='border' 
             flex 
             w='90%'
-            m='0 auto' 
+            m='10px auto' 
             fD='column' 
             justC='center' 
             alignI='center' 
