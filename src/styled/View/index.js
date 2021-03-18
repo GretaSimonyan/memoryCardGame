@@ -100,6 +100,18 @@ const flexBox = ({flex, f, fD, fW, fF, fG, fSh, fB, order, justC, alignI, alignS
   ${ alignC ? `align-content: ${alignC}` : "" }
 `;
 
+const gridBox = ({grid, g, gap, gAC, gAF, gAR, gTA, gTC, gTR}) => `
+  ${ grid ? `display: grid` : ""};
+  ${ g ? `grid: ${g}` : ""};
+  ${ gap ? `gap: ${gap}` : ""};
+  ${ gAC ? `grid-auto-columns: ${gAC}` : ""};
+  ${ gAF ? `grid-auto-flow: ${gAF}` : ""};
+  ${ gAR ? `grid-auto-rows: ${gAR}` : ""};
+  ${ gTA ? `grid-template-areas: ${gTA}` : ""};
+  ${ gTC ? `grid-template-columns: ${gTC}` : ""};
+  ${ gTR ? `grid-template-rows: ${gTR}` : ""};
+`;
+
 const other =({boxS, boxSh, overflow, c, op, tr, cursor}) =>`
   ${ boxS ? `box-sizing: ${boxS}` : "" };
   ${ boxSh ? `box-shadow: ${boxSh}` : "" };
@@ -148,6 +160,7 @@ const setStyles = props => `
   ${ backgrounds(props) }
   ${ flexBox(props) }
   ${ border(props) }
+  ${ gridBox(props) }
   ${ other(props) }
 `;
 
