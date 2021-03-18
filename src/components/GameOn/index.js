@@ -12,7 +12,6 @@ import cardImages from './cards';
 const Item = styled(View)`
     width: 100px;
     height: 120px;
-    margin: 5px 5px 0 0;
     transition: transform 0.5s;
     ${ (props) => props.isFlipped === false ? `background: linear-gradient(0deg, rgba(255,33,33,1) 25%, rgba(252,164,41,1) 74%);
     ` : `transform: rotateY(180deg);` }
@@ -108,9 +107,30 @@ function GameOn(){
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
-    console.log(cards)
+    console.log(cards);
+
+    function columns(width){
+        let w = '100px 100px'
+        for(let i = 1; i <= width-2; i++){
+            w += ' 100px'
+        }
+        return w
+    }
+    function rows(height){
+        let r = '120px 120px'
+        for(let i = 1; i <= height-2; i++){
+            r += ' 120px'
+        }
+        return r
+    }
+
     return(
-        <View id='gameOn' flex fW='wrap' justC='space-around' m='0 auto' w='80%'>
+        <View id='gameOn' 
+            grid
+            gap='5px 5px'
+            gTC={columns(state.width)}
+            gTR={rows(state.height)}
+            >
             {cards.map((pic,index) => 
                 <Item 
                     bgImg={pic.imageURL} 
