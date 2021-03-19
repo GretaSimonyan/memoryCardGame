@@ -20,11 +20,17 @@ const Item = styled(View)`
 function GameOn(){
     const [state, dispatch] = useContext(Context);
     const pictures = cardImages.slice();
-    pictures.length = 2;
-    pictures.push(...pictures);
 
-    function generate(p) {
-        const c = p.map((image,index) => ({
+    function generate(cardsNum) {
+        if( cardsNum % 2 !== 0 ) {
+            pictures.length = 2;
+            alert("Multiple width and height values must be Even number");
+        }else{
+            pictures.length = cardsNum/2;
+        };
+        pictures.push(...pictures);
+
+        let c = pictures.map((image,index) => ({
             id: image +" "+ index,
             imageURL: image,
             isFlipped: false,
@@ -35,18 +41,13 @@ function GameOn(){
     };
 
     useEffect(()=> {
-        if((state.height * state.width) % 2 !== 0 ){
-            pictures.length = 2;
-            alert("Multiple width and height values must be Even number")
-        }else{
-            pictures.length = (state.height * state.width)/2;
-        };
-        pictures.push(...pictures);
-        setCards(generate(pictures));
+        setCards(generate(cardsNum));
     },[state.height, state.width]);
 
     //////////////////////////////////////////////////////
-    const [cards, setCards] = useState(generate(pictures));
+    let cardsNum = state.height * state.width;
+
+    const [cards, setCards] = useState(generate(cardsNum));
     const [firstCard, setFirstCard] = useState(null);
 	const [secondCard, setSecondCard] = useState(null);
 
