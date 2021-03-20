@@ -8,14 +8,7 @@ function PlayersNumber(){
     const [state, dispatch] = useContext(Context);
     let plArr = ["A","B","C","D"];
     plArr.length = state.plValue;
-
-    // let activePlayer = () => {
-    //     dispatch({
-    //         type: 'SET_CURRENT_PLAYER',
-    //         current: plArr[1]
-    //     });
-    // };
-    
+      
     return(
         <View id='playersNumber' flex justC='space-between' m='0 auto' w='70%'>
             <View>
