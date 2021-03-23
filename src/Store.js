@@ -8,7 +8,6 @@ const initialState = {
     plArr: ["A","B","C","D"],
     curArr: ["A"],
     currentPlayer: "A",
-    play: false,
     error: null
 };
 

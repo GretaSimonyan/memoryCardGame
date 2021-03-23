@@ -29,12 +29,7 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 curArr: action.curArr
-            }
-        // case 'SET_PLAY':
-        //     return {
-        //         ...state,
-        //         play: action.play
-        //     };
+            };
         // case 'REMOVE':
         //     return {
         //         ...state,
