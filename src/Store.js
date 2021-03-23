@@ -2,10 +2,12 @@ import React, {createContext, useReducer} from "react";
 import Reducer from './Reducer';
 
 const initialState = {
-    plValue: 2,
+    plValue: 1,
     width: 2,
     height: 2,
-    current: "A",
+    plArr: ["A","B","C","D"],
+    curArr: ["A"],
+    currentPlayer: "A",
     play: false,
     error: null
 };

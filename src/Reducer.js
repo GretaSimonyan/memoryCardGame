@@ -18,13 +18,23 @@ const Reducer = (state, action) => {
         case 'SET_CURRENT_PLAYER':
             return {
                 ...state,
-                current: action.current
+                currentPlayer: action.currentPlayer
             };
-        case 'SET_PLAY':
+        case 'SET_PLAYERS_ARRAY':
             return {
                 ...state,
-                play: action.play
+                plArr: action.plArr
             };
+        case 'SET_PLAYERS_CURRENT_ARRAY':
+            return {
+                ...state,
+                curArr: action.curArr
+            }
+        // case 'SET_PLAY':
+        //     return {
+        //         ...state,
+        //         play: action.play
+        //     };
         // case 'REMOVE':
         //     return {
         //         ...state,
