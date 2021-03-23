@@ -36,7 +36,7 @@ function GameOn(){
             isFlipped: false,
             canFlip: true
         }));
-        console.log("c",c);
+        // console.log("c",c);
         return c.sort(()=> Math.random() - 0.5);
     };
 
@@ -75,6 +75,7 @@ function GameOn(){
 		cardIsFlipped(secondCard.id, true);
         setFirstCard(null);
         setSecondCard(null);
+        // setPointsForCurrPlayer();
     };
 
     function onFailureGuess() {
@@ -91,7 +92,26 @@ function GameOn(){
 
         setFirstCard(null);
         setSecondCard(null);
+
+        setNextPlayer();
     };
+
+    function setNextPlayer(){
+        let indexOfCurrentPlayer = state.curArr.indexOf(state.currentPlayer);
+        if( indexOfCurrentPlayer < state.curArr.length-1){
+            dispatch({
+                type: 'SET_CURRENT_PLAYER',
+                currentPlayer: state.curArr[indexOfCurrentPlayer+1],
+            });
+        }else{
+            dispatch({
+                type: 'SET_CURRENT_PLAYER',
+                currentPlayer: state.curArr[0],
+            });
+        };
+    };
+
+    
 
     useEffect(() => {
 		if (!firstCard || !secondCard)
@@ -108,7 +128,7 @@ function GameOn(){
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
-    console.log(cards);
+    // console.log(cards);
 
     function columns(width){
         let w = '100px 100px'
