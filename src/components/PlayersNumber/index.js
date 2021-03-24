@@ -5,21 +5,21 @@ import {
 import { Context } from '../../Store';
 
 function PlayersNumber(){
-    const [state, dispatch] = useContext(Context);
-
+    const [state] = useContext(Context);
+    
     return(
         <View id='playersNumber' flex justC='space-between' m='0 auto' w='70%'>
             <View>
                 {
-                    state.curArr.map((num=state.plValue, key) => 
+                    state.curArr.map((item=state.currentPlayer, key) => 
                         <View key={key}>
-                            Player {num} : 0
+                            Player {item.title} : {item.point}
                         </View>
                     )
                 }
             </View>
             <View>
-                Current Player:  {state.currentPlayer}
+                Current Player:  {state.currentPlayer.title}
             </View>
         </View>
     )
