@@ -75,7 +75,7 @@ function GameOn(){
 		cardIsFlipped(secondCard.id, true);
         setFirstCard(null);
         setSecondCard(null);
-        // setPointsForCurrPlayer();
+        setPointsForCurrPlayer();
     };
 
     function onFailureGuess() {
@@ -111,6 +111,14 @@ function GameOn(){
         };
     };
 
+    function setPointsForCurrPlayer(){
+        state.currentPlayer.point = state.currentPlayer.point + 1;
+        console.log(state.currentPlayer.point);
+        dispatch({
+            type: 'SET_CURRENT_PLAYER',
+            currentPlayer: state.currentPlayer,
+        });
+    };
     
 
     useEffect(() => {
