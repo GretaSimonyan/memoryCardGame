@@ -5,9 +5,13 @@ const initialState = {
     plValue: 1,
     width: 2,
     height: 2,
-    plArr: ["A","B","C","D"],
-    curArr: ["A"],
-    currentPlayer: "A",
+    plArr: [{title:"A", point:0},
+        {title:"B", point:0},
+        {title:"C", point:0},
+        {title:"C", point:0},
+    ],
+    curArr: [{title:"A", point:0}],
+    currentPlayer: {title:"A", point:0},
     error: null
 };
 
