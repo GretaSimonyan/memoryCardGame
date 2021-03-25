@@ -8,7 +8,7 @@ function PlayersNumber(){
     const [state] = useContext(Context);
     
     return(
-        <View id='playersNumber' flex justC='space-between' m='0 auto' w='70%'>
+        <View id='playersNumber' grid gTC='1fr 1fr' gTR='1fr' gap='200px'>
             <View>
                 {
                     state.curArr.map((item=state.currentPlayer, key) => 
