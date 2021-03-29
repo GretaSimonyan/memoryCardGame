@@ -8,6 +8,7 @@ import { Context } from '../../Store';
 import styled from 'styled-components';
 
 import cardImages from './cards';
+import Won from '../Won';
 
 const Item = styled(View)`
     transition: transform 0.5s;
@@ -65,8 +66,18 @@ function GameOn(){
         }))
     };
     
+    function countPoints(){
+        let flipArr = [];
+        cards.map(card=> {
+            if (!card.canFlip) flipArr.push(card.canFlip);
+        });
+        if (flipArr.length === cards.length){
+            return <Won/>;
+        } 
+    };
+
     function onSuccessGuess() {
-        console.log('success');
+        // console.log('success');
         cardCanFlip(firstCard.id, false);
         cardCanFlip(secondCard.id, false);
         cardIsFlipped(firstCard.id, true);
@@ -74,10 +85,11 @@ function GameOn(){
         setFirstCard(null);
         setSecondCard(null);
         setPointsForCurrPlayer();
+        // countPoints()
     };
 
     function onFailureGuess() {
-        console.log('failure');
+        // console.log('failure');
 
         setTimeout(() => {
 			cardIsFlipped(firstCard.id, false);
@@ -112,7 +124,7 @@ function GameOn(){
 
     function setPointsForCurrPlayer(){
         state.currentPlayer.point = state.currentPlayer.point + 1;
-        console.log(state.currentPlayer.point);
+        // console.log(state.currentPlayer.point);
         dispatch({
             type: 'SET_CURRENT_PLAYER',
             currentPlayer: state.currentPlayer,
@@ -148,26 +160,30 @@ function GameOn(){
     }
 
     return(
-        <View id='gameOn' 
-            grid
-            gap='5px 5px'
-            gTC={columns(state.width)}
-            gTR={rows(state.height)}
-            >
-            {cards.map((pic,index) => 
-                <Item 
-                    w='100px'
-                    h='120px'
-                    bgImg={pic.imageURL} 
-                    key={pic+index} 
-                    onClick={() => handleClick(pic)}
-                    isFlipped={pic.isFlipped}
-                    bgSize='cover'
-                    bgPos='center'
-                    bgRep='no-repeat'
-                />)
-            }
-        </View>
+        <>
+            <View id='gameOn' 
+                grid
+                gap='5px 5px'
+                gTC={columns(state.width)}
+                gTR={rows(state.height)}
+                >
+                {cards.map((pic,index) => 
+                    <Item 
+                        w='100px'
+                        h='120px'
+                        bgImg={pic.imageURL} 
+                        key={pic+index} 
+                        onClick={() => handleClick(pic)}
+                        isFlipped={pic.isFlipped}
+                        bgSize='cover'
+                        bgPos='center'
+                        bgRep='no-repeat'
+                    />)
+                }
+            </View>
+            {/* <View>{countPoints()}</View> */}
+            <Won/>
+        </>
     )
 }
 
