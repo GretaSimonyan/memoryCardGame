@@ -23,42 +23,34 @@ function Won(){
     useEffect(() => {
         countWinner()
     },state.curArr);
-    
-    // function restart() {
-		
-    // };
 
     return(
         <View id='Won' 
-            // pos='relative'
             z='4'
             w='50%'
-            h='50px'
-            bgColor='orange'
-            tAlign='center'
-            // overflow='hidden'
-            pos='absolute'
-            top='0px'
+            m='auto'
+            p='20px'
+            bRad='4px'
             left='0px'
             right='0px'
-            bottom='0px'
-            m='auto'
-            bRad='3px'
+            pos='absolute'
+            tAlign='center'
+            bgColor='orange'
+            overflow='hidden'
         >
             <View grid
                 gap='15px'
                 gTR='1fr 1fr'
                 justI='center'
+                fontSize='30px'
             >
-                <View>
-                    Winner {state.winner}
+                <View c='azure'>
+                    Winner - Player {state.winner}
                 </View>
-                <a href='#'>
-                    Retstart
+                <a href='/'>
+                    Restart
                 </a>
             </View>
-            
-            {/* <button className="homescreen__shuffle-button " onClick={this.clickMe} >Start!</button> */}
         </View>
     )
 }
