@@ -77,7 +77,6 @@ function GameOn(){
     };
 
     function onSuccessGuess() {
-        // console.log('success');
         cardCanFlip(firstCard.id, false);
         cardCanFlip(secondCard.id, false);
         cardIsFlipped(firstCard.id, true);
@@ -85,12 +84,9 @@ function GameOn(){
         setFirstCard(null);
         setSecondCard(null);
         setPointsForCurrPlayer();
-        // countPoints()
     };
 
     function onFailureGuess() {
-        // console.log('failure');
-
         setTimeout(() => {
 			cardIsFlipped(firstCard.id, false);
 		}, 1000);
@@ -124,7 +120,6 @@ function GameOn(){
 
     function setPointsForCurrPlayer(){
         state.currentPlayer.point = state.currentPlayer.point + 1;
-        // console.log(state.currentPlayer.point);
         dispatch({
             type: 'SET_CURRENT_PLAYER',
             currentPlayer: state.currentPlayer,
@@ -143,6 +138,7 @@ function GameOn(){
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
+    
     // console.log(cards);
     function columns(width){
         let w = '100px 100px'
@@ -181,8 +177,7 @@ function GameOn(){
                     />)
                 }
             </View>
-            {/* <View>{countPoints()}</View> */}
-            <Won/>
+            {countPoints()}
         </>
     )
 }
