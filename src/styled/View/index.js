@@ -100,7 +100,7 @@ const flexBox = ({flex, f, fD, fW, fF, fG, fSh, fB, order, justC, alignI, alignS
   ${ alignC ? `align-content: ${alignC}` : "" }
 `;
 
-const gridBox = ({grid, g, gap, gAC, gAF, gAR, gTA, gTC, gTR}) => `
+const gridBox = ({grid, g, gap, gAC, gAF, gAR, gTA, gTC, gTR, justI}) => `
   ${ grid ? `display: grid` : ""};
   ${ g ? `grid: ${g}` : ""};
   ${ gap ? `gap: ${gap}` : ""};
@@ -110,6 +110,7 @@ const gridBox = ({grid, g, gap, gAC, gAF, gAR, gTA, gTC, gTR}) => `
   ${ gTA ? `grid-template-areas: ${gTA}` : ""};
   ${ gTC ? `grid-template-columns: ${gTC}` : ""};
   ${ gTR ? `grid-template-rows: ${gTR}` : ""};
+  ${ justI ? `justify-items: ${justI}` : "" };
 `;
 
 const other =({boxS, boxSh, overflow, c, op, tr, cursor}) =>`
