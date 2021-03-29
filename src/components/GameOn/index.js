@@ -10,8 +10,6 @@ import styled from 'styled-components';
 import cardImages from './cards';
 
 const Item = styled(View)`
-    width: 100px;
-    height: 120px;
     transition: transform 0.5s;
     ${ (props) => props.isFlipped === false ? `background: linear-gradient(0deg, rgba(255,33,33,1) 25%, rgba(252,164,41,1) 74%);
     ` : `transform: rotateY(180deg);` }
@@ -80,15 +78,16 @@ function GameOn(){
 
     function onFailureGuess() {
         console.log('failure');
-        const firstId = firstCard.id;
-        const secondId = secondCard.id;
 
         setTimeout(() => {
-			cardIsFlipped(firstId, false);
+			cardIsFlipped(firstCard.id, false);
 		}, 1000);
 		setTimeout(() => {
-			cardIsFlipped(secondId, false);
+			cardIsFlipped(secondCard.id, false);
 		}, 1200);
+
+        cardCanFlip(firstCard.id, true);
+        cardCanFlip(secondCard.id, true);
 
         setFirstCard(null);
         setSecondCard(null);
@@ -120,24 +119,19 @@ function GameOn(){
         });
     };
     
-
     useEffect(() => {
 		if (!firstCard || !secondCard)
 			return;
 		((firstCard.imageURL === secondCard.imageURL) && (firstCard.id !== secondCard.id)) ? onSuccessGuess() : onFailureGuess();
-        cardCanFlip(firstCard.id, true);
-        cardCanFlip(secondCard.id, true);
 	}, [firstCard, secondCard]);
 
     function handleClick(pic) {
-		if (!pic.canFlip)
-			return;
+		if (!pic.canFlip) return;
         (firstCard) ? setSecondCard(pic) : setFirstCard(pic);
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
     // console.log(cards);
-
     function columns(width){
         let w = '100px 100px'
         for(let i = 1; i <= width-2; i++){
@@ -162,6 +156,8 @@ function GameOn(){
             >
             {cards.map((pic,index) => 
                 <Item 
+                    w='100px'
+                    h='120px'
                     bgImg={pic.imageURL} 
                     key={pic+index} 
                     onClick={() => handleClick(pic)}
