@@ -12,6 +12,7 @@ const initialState = {
     ],
     curArr: [{title:"A", point:0}],
     currentPlayer: {title:"A", point:0},
+    winner: "don't know",
     error: null
 };
 

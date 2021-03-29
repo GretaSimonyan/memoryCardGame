@@ -30,6 +30,11 @@ const Reducer = (state, action) => {
                 ...state,
                 curArr: action.curArr
             };
+        case 'SET_WINNER':
+            return {
+                ...state,
+                winner: action.winner
+            }
         // case 'REMOVE':
         //     return {
         //         ...state,
