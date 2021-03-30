@@ -5,16 +5,10 @@ import React, {
 } from "react";
 import { View }from '../../styled';
 import { Context } from '../../Store';
-import styled from 'styled-components';
 
+import Card from './Card';
 import cardImages from './cards';
 import Won from '../Won';
-
-const Item = styled(View)`
-    transition: transform 0.5s;
-    ${ (props) => props.isFlipped === false ? `background: linear-gradient(0deg, rgba(255,33,33,1) 25%, rgba(252,164,41,1) 74%);
-    ` : `transform: rotateY(180deg);` }
-`;
 
 function GameOn(){
     const [state, dispatch] = useContext(Context);
@@ -35,16 +29,15 @@ function GameOn(){
             isFlipped: false,
             canFlip: true
         }));
-        // console.log("c",c);
         return c.sort(()=> Math.random() - 0.5);
     };
 
-    useEffect(()=> {
-        setCards(generate(cardsNum));
-    },[state.height, state.width]);
-
     //////////////////////////////////////////////////////
     let cardsNum = state.height * state.width;
+
+    useEffect(()=> {
+        setCards(generate(cardsNum));
+    },[cardsNum]);
 
     const [cards, setCards] = useState(generate(cardsNum));
     const [firstCard, setFirstCard] = useState(null);
@@ -139,7 +132,6 @@ function GameOn(){
         cardCanFlip(pic.id, false);
     };
     
-    // console.log(cards);
     function columns(width){
         let w = '100px 100px'
         for(let i = 1; i <= width-2; i++){
@@ -164,16 +156,11 @@ function GameOn(){
                 gTR={rows(state.height)}
                 >
                 {cards.map((pic,index) => 
-                    <Item 
-                        w='100px'
-                        h='120px'
+                    <Card 
                         bgImg={pic.imageURL} 
                         key={pic+index} 
                         onClick={() => handleClick(pic)}
                         isFlipped={pic.isFlipped}
-                        bgSize='cover'
-                        bgPos='center'
-                        bgRep='no-repeat'
                     />)
                 }
             </View>
