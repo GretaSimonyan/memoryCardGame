@@ -4,15 +4,14 @@ import React, {
 } from "react";
 import { View }from '../../styled';
 import { Context } from '../../Store';
+import Button from './Button.js';
 
 function Won(){
     const [state, dispatch] = useContext(Context);
 
     function countWinner(){
         let pointsArr = [];
-        state.curArr.map((curr)=>{
-            pointsArr.push(curr.point);
-        });
+        state.curArr.map((curr)=> pointsArr.push(curr.point));
 
         dispatch({
             type: 'SET_WINNER',
@@ -47,9 +46,9 @@ function Won(){
                 <View c='azure'>
                     Winner - Player {state.winner}
                 </View>
-                <a href='/'>
+                <Button href='/'>
                     Restart
-                </a>
+                </Button>
             </View>
         </View>
     )
