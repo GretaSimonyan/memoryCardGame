@@ -17,8 +17,8 @@ const Button = styled.a`
     &:hover {
         background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
         background-color:#fb9e25;
-    &}
-    :active {
+    }
+    &:active {
         position:relative;
         top:1px;
     }
