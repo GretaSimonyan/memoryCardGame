@@ -4,7 +4,7 @@ import React, {
 } from "react";
 import { View }from '../../styled';
 import { Context } from '../../Store';
-import Button from './Button.js';
+import Button from '../StylesComp/Button.js';
 
 function Won(){
     const [state, dispatch] = useContext(Context);

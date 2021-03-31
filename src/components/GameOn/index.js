@@ -3,10 +3,10 @@ import React, {
     useState, 
     useEffect
 } from "react";
-import { View }from '../../styled';
+import { View } from '../../styled';
 import { Context } from '../../Store';
 
-import Card from './Card';
+import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
 
