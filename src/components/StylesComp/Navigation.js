@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Navigation = styled(NavLink)`
@@ -14,8 +14,8 @@ const Navigation = styled(NavLink)`
     &:hover {
         color: white;
         background: #fb9e25;
-    &}
-    :active {
+    }
+    &:active {
         position: relative;
         top:1px;
     }
