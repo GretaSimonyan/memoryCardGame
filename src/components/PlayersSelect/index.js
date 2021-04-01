@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import {
     View
 }from '../../styled';
-import {Context} from '../../Store'
+import {Context} from '../../Store';
+import Select from '../StylesComp/Select';
 
 function PlayersSelect (){
     const [state, dispatch] = useContext(Context);
@@ -27,12 +28,15 @@ function PlayersSelect (){
             type: 'SET_PLAYERS_CURRENT_ARRAY',
             curArr: arr,
         });
-    }
+    };
 
     return( 
-        <View flex fD='column' alignI='space-between' justC='center'>
-            <View fontSize='25px'> Players </View>
-            <select onChange={e => handleNumberChange(e)} onClick={ () => currArrChanged()}>
+        <View grid gap='15px'>
+            <View fontSize='25px'> Players Number </View>
+            <Select
+                onChange={e => handleNumberChange(e)} 
+                onClick={() => currArrChanged()}
+            >
                 {
                     players.map((num, key) => 
                         <option key={key} value={key}>
@@ -40,7 +44,7 @@ function PlayersSelect (){
                         </option>
                     )
                 }
-            </select>
+            </Select>
         </View>
     )
 }

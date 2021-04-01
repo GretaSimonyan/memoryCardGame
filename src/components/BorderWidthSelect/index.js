@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import {
-    View
-}from '../../styled';
+import { View } from '../../styled';
 import { Context } from '../../Store';
+import Select from '../StylesComp/Select';
 
 function BorderWidthSelect (){
     const [state, dispatch] = useContext(Context);
@@ -16,19 +15,17 @@ function BorderWidthSelect (){
     };
 
     return(
-        <View flex alignI='center' justC='space-between'>
+        <View grid gTR='1fr 1fr' gap='5px'>
             <View fontSize='20px'> Width </View>
-            <View id='height' m='0 10px'>
-                <select onChange={e => handleNumberChange(e)}>
-                    {
-                        widthArr.map((num=state.width,key)=> 
-                            <option key={key} value={key}>
-                                {num}
-                            </option>
-                        )
-                    }
-                </select>
-            </View>
+            <Select onChange={e => handleNumberChange(e)}>
+                {
+                    widthArr.map((num=state.width,key)=> 
+                        <option key={key} value={key}>
+                            {num}
+                        </option>
+                    )
+                }
+            </Select>
         </View>
     )
 }
