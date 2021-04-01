@@ -1,33 +1,33 @@
 import React from "react";
-import {
-    View
-} from '../../styled';
-import {Route, NavLink} from 'react-router-dom';
+import { View } from '../../styled';
+import { Route } from 'react-router-dom';
 import {
     Header,
     Selects,
     Border,
+    Navigation
 } from '../../components';
-
 import Store from '../../Store';
 
 function Home (){
     return(
         <Store>
             <Header/>
-            <View flex justC='space-around' m='20px auto'>
-                <View>
-                    <NavLink to='/'>CHANGE SELECTION</NavLink>
-                </View>
-                <View>
-                    <NavLink to='/border'>PLAY GAME</NavLink>
-                </View>  
+            <View grid
+                gTC='1fr 1fr'
+                m='20px auto' 
+                justI='center'
+                gap='20px 20px'
+                fontSize='14px'
+                alignI='stretch'
+            >
+                <Navigation to='/'>CHANGE SELECTION</Navigation>
+                <Navigation to='/border'>PLAY GAME</Navigation>
             </View>
 
             <Route path='/' exact render={() => <Selects/>}/>
             
             <Route path='/border' exact render={() => <Border/>}/>
-
         </Store>
     )
 }
