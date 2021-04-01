@@ -1,18 +1,16 @@
 import React from "react";
-import {
-    View
-}from '../../styled';
+import { View } from '../../styled';
 import PlayersSelect from '../PlayersSelect';
 import BorderHeightSelect from '../BorderHeightSelect';
 import BorderWidthSelect from '../BorderWidthSelect';
  
 function Selects(){
     return( 
-        <View id='selects' flex alignI='center' justC='space-around' >
+        <View id='selects' grid gTC='1fr 1fr' justI='center'>
             <PlayersSelect />
-            <View id='borderSizeSelect' flex fD='column' >
+            <View id='bSizeSelect' grid gap='5px' tAlign='center'>
                 <View fontSize='25px'>Border Size</View>
-                <View flex fD='column' alignI='flex-end' justC='center'>
+                <View grid gTC='1fr 1fr' gap='15px'>
                     <BorderHeightSelect/>
                     <BorderWidthSelect/>
                 </View>    
