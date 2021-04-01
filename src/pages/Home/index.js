@@ -1,12 +1,8 @@
 import React from "react";
 import { View } from '../../styled';
 import { Route } from 'react-router-dom';
-import {
-    Header,
-    Selects,
-    Border,
-    Navigation
-} from '../../components';
+import { Header, Selects, Border } from '../../components';
+import Navigation  from '../../components/StylesComp/Navigation';
 import Store from '../../Store';
 
 function Home (){
