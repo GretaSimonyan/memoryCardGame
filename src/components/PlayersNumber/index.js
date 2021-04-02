@@ -1,8 +1,7 @@
 import React, {useContext} from "react";
-import {
-    View
-}from '../../styled';
+import { View } from '../../styled';
 import { Context } from '../../Store';
+import Jello from 'react-reveal/Jello';
 
 function PlayersNumber(){
     const [state] = useContext(Context);
@@ -18,9 +17,11 @@ function PlayersNumber(){
                     )
                 }
             </View>
-            <View>
-                Current Player:  {state.currentPlayer.title}
-            </View>
+            <Jello>
+                <View>
+                    Current Player: {state.currentPlayer.title}
+                </View>
+            </Jello>
         </View>
     )
 }
