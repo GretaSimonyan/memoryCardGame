@@ -1,8 +1,5 @@
-import React, {
-    useContext, 
-    useEffect
-} from "react";
-import { View }from '../../styled';
+import React, { useContext, useEffect } from "react";
+import { View } from '../../styled';
 import { Context } from '../../Store';
 import Button from '../StylesComp/Button.js';
 
@@ -12,10 +9,9 @@ function Won(){
     function countWinner(){
         let pointsArr = [];
         state.curArr.map((curr)=> pointsArr.push(curr.point));
-
         dispatch({
             type: 'SET_WINNER',
-            winner: state.curArr.find(cur => cur.point === Math.max(...pointsArr)).title,
+            winner: state.curArr.find(cur => cur.point === Math.max(...pointsArr)),
         });
     };
 
@@ -39,16 +35,17 @@ function Won(){
         >
             <View grid
                 gap='15px'
-                gTR='1fr 1fr'
+                gTR='1fr 1fr auto'
                 justI='center'
                 fontSize='30px'
             >
-                <View c='azure'>
-                    Winner - Player {state.winner}
+                <View c='azure'> 
+                    Congratulations Player {state.winner.title} 
                 </View>
-                <Button href='/'>
-                    Restart
-                </Button>
+                <View c='azure'> 
+                    You win by gaining {state.winner.point} points
+                </View>
+                <Button href='/'> Restart </Button>
             </View>
         </View>
     )
