@@ -21,9 +21,8 @@ function Home (){
                 <Navigation to='/border'>PLAY GAME</Navigation>
             </View>
 
-            <Route path='/' exact render={() => <Selects/>}/>
-            
-            <Route path='/border' exact render={() => <Border/>}/>
+            <Route path='/' exact component={Selects}/>
+            <Route path='/border' component={Border}/>
         </Store>
     )
 }
