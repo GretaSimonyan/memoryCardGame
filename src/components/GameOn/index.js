@@ -1,11 +1,6 @@
-import React, {
-    useContext, 
-    useState, 
-    useEffect
-} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
-
 import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
@@ -61,12 +56,8 @@ function GameOn(){
     
     function countPoints(){
         let flipArr = [];
-        cards.map(card=> {
-            if (!card.canFlip) flipArr.push(card.canFlip);
-        });
-        if (flipArr.length === cards.length){
-            return <Won/>;
-        } 
+        cards.map(card => (!card.canFlip) && flipArr.push(card.canFlip) );
+        if (flipArr.length === cards.length) return <Won/>;
     };
 
     function onSuccessGuess() {
@@ -138,23 +129,21 @@ function GameOn(){
             w += ' 100px'
         }
         return w
-    }
+    };
     function rows(height){
         let r = '120px 120px'
         for(let i = 1; i <= height-2; i++){
             r += ' 120px'
         }
         return r
-    }
+    };
 
     return(
         <>
-            <View id='gameOn' 
-                grid
-                gap='5px 5px'
+            <View id='gameOn' grid gap='5px 5px'
                 gTC={columns(state.width)}
                 gTR={rows(state.height)}
-                >
+            >
                 {cards.map((pic,index) => 
                     <Card 
                         bgImg={pic.imageURL} 
