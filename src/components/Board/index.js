@@ -3,9 +3,9 @@ import { View } from '../../styled';
 import PlayersNumber from '../PlayersNumber';
 import GameOn from '../GameOn';
 
-function Border(){
+function Board(){
     return(
-        <View id='border' 
+        <View id='board' 
             grid 
             gTC='1fr' 
             gap='10px 0' 
@@ -19,4 +19,4 @@ function Border(){
     )
 }
 
-export default Border;
+export default Board;

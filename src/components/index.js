@@ -1,9 +1,9 @@
 import Header from '../components/Header';
 import Selects from '../components/Selects';
-import Border from '../components/Border';
+import Board from '../components/Board';
 
 export{
     Header,
     Selects,
-    Border,
+    Board,
 }

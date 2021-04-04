@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from '../../styled';
 import { Route } from 'react-router-dom';
-import { Header, Selects, Border } from '../../components';
+import { Header, Selects, Board } from '../../components';
 import Navigation  from '../../components/StylesComp/Navigation';
 import Store from '../../Store';
 
@@ -18,11 +18,11 @@ function Home (){
                 alignI='stretch'
             >
                 <Navigation to='/'>CHANGE SELECTION</Navigation>
-                <Navigation to='/border'>PLAY GAME</Navigation>
+                <Navigation to='/board'>PLAY GAME</Navigation>
             </View>
 
             <Route path='/' exact component={Selects}/>
-            <Route path='/border' component={Border}/>
+            <Route path='/board' component={Board}/>
         </Store>
     )
 }

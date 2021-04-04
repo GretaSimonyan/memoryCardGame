@@ -3,7 +3,7 @@ import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
 
-function BorderWidthSelect (){
+function BoardWidthSelect (){
     const [state, dispatch] = useContext(Context);
     const widthArr = [2,3,4,5,6,7,8];
 
@@ -30,4 +30,4 @@ function BorderWidthSelect (){
     )
 }
 
-export default BorderWidthSelect;
+export default BoardWidthSelect;
