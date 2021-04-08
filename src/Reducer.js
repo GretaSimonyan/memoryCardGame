@@ -1,36 +1,46 @@
+import {
+    SET_PLAYERS_VALUE,
+    SET_WIDTH,
+    SET_HEIGHT,
+    SET_CURRENT_PLAYER,
+    SET_PLAYERS_ARRAY,
+    SET_PLAYERS_CURRENT_ARRAY,
+    SET_WINNER
+} from './Actions';
+
 const Reducer = (state, action) => {
     switch (action.type) {
-        case 'SET_PLAYERS_VALUE':
+        case SET_PLAYERS_VALUE:
             return {
                 ...state,
                 plValue: action.plValue
             };
-        case 'SET_WIDTH':
+        case SET_WIDTH:
             return {
                 ...state,
                 width: action.width
             };
-        case 'SET_HEIGHT':
+        case SET_HEIGHT:
             return {
                 ...state,
                 height: action.height
             };
-        case 'SET_CURRENT_PLAYER':
+        case SET_CURRENT_PLAYER:
             return {
                 ...state,
                 currentPlayer: action.currentPlayer
             };
-        case 'SET_PLAYERS_ARRAY':
+        case SET_PLAYERS_ARRAY:
             return {
                 ...state,
                 plArr: action.plArr
             };
-        case 'SET_PLAYERS_CURRENT_ARRAY':
+        case SET_PLAYERS_CURRENT_ARRAY:
             return {
                 ...state,
                 curArr: action.curArr
             };
-        case 'SET_WINNER':
+        case SET_WINNER:
             return {
                 ...state,
                 winner: action.winner

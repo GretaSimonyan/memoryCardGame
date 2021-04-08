@@ -4,6 +4,7 @@ import { Context } from '../../Store';
 import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
+import { SET_CURRENT_PLAYER } from '../../Actions';
 
 const pictures = cardImages.slice();
 function generate(cardsNum) {
@@ -95,12 +96,12 @@ function GameOn(){
         let indexOfCurrentPlayer = state.curArr.indexOf(state.currentPlayer);
         if( indexOfCurrentPlayer < state.curArr.length-1){
             dispatch({
-                type: 'SET_CURRENT_PLAYER',
+                type: SET_CURRENT_PLAYER,
                 currentPlayer: state.curArr[indexOfCurrentPlayer+1],
             });
         }else{
             dispatch({
-                type: 'SET_CURRENT_PLAYER',
+                type: SET_CURRENT_PLAYER,
                 currentPlayer: state.curArr[0],
             });
         };
@@ -109,7 +110,7 @@ function GameOn(){
     function setPointsForCurrPlayer(){
         state.currentPlayer.point = state.currentPlayer.point + 1;
         dispatch({
-            type: 'SET_CURRENT_PLAYER',
+            type: SET_CURRENT_PLAYER,
             currentPlayer: state.currentPlayer,
         });
     };

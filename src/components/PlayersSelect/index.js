@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-import {
-    View
-}from '../../styled';
-import {Context} from '../../Store';
+import { View } from '../../styled';
+import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
+import { 
+    SET_PLAYERS_VALUE, 
+    SET_CURRENT_PLAYER, 
+    SET_PLAYERS_CURRENT_ARRAY 
+} from '../../Actions';
 
+// import {SET_PLAYERS_VALUE} from '../../actionCreators'
 function PlayersSelect (){
     const [state, dispatch] = useContext(Context);
     const players = [1,2,3,4]
@@ -14,18 +18,19 @@ function PlayersSelect (){
 
     const handleNumberChange = e => {
         dispatch({
-            type: 'SET_PLAYERS_VALUE', 
+            type: SET_PLAYERS_VALUE, 
             plValue: players[e.target.value]
         });
+        // dispatch(SET_PLAYERS_VALUE(players[e.target.value]))
         dispatch({
-            type: 'SET_CURRENT_PLAYER',
+            type: SET_CURRENT_PLAYER,
             currentPlayer: arr[Math.floor(Math.random()*arr.length)],
         });
     };
 
     function currArrChanged(){
         dispatch({
-            type: 'SET_PLAYERS_CURRENT_ARRAY',
+            type: SET_PLAYERS_CURRENT_ARRAY,
             curArr: arr,
         });
     };

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
+import { SET_HEIGHT } from '../../Actions';
 
 function BoardHeightSelect (){
     const [state, dispatch] = useContext(Context);
@@ -9,7 +10,7 @@ function BoardHeightSelect (){
 
     const handleNumberChange = e => {
         dispatch({
-            type: "SET_HEIGHT",
+            type: SET_HEIGHT,
             height: heightArr[e.target.value]
         })
     };
