@@ -2,16 +2,16 @@ import React, {createContext, useReducer} from "react";
 import Reducer from './Reducer';
 
 const initialState = {
-    plValue: 1,
+    playersValue: 1,
     width: 2,
     height: 2,
-    plArr: [{title:"A", point:0},
+    players: [{title:"A", point:0},
         {title:"B", point:0},
         {title:"C", point:0},
-        {title:"C", point:0},
+        {title:"D", point:0},
     ],
-    curArr: [{title:"A", point:0}],
-    currentPlayer: {title:"A", point:0},
+    currentPlayers: [{title:"A", point:0}],
+    activePlayer: {title:"A", point:0},
     winner: {title:"A", point:0},
     error: null
 };

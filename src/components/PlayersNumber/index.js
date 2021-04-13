@@ -10,7 +10,7 @@ function PlayersNumber(){
         <View id='playersNumber' grid gTC='1fr 1fr' gTR='1fr' gap='200px'>
             <View>
                 {
-                    state.curArr.map((item=state.currentPlayer, key) => 
+                    state.currentPlayers.map((item=state.currentPlayer, key) => 
                         <View key={key}>
                             Player {item.title} : {item.point}
                         </View>
@@ -19,7 +19,7 @@ function PlayersNumber(){
             </View>
             <Jello>
                 <View>
-                    Current Player: {state.currentPlayer.title}
+                    Current Player: {state.activePlayer.title}
                 </View>
             </Jello>
         </View>

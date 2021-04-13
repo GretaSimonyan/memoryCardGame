@@ -9,16 +9,16 @@ function Won(){
 
     function countWinner(){
         let pointsArr = [];
-        state.curArr.map((curr)=> pointsArr.push(curr.point));
+        state.currentPlayers.map((curr)=> pointsArr.push(curr.point));
         dispatch({
             type: SET_WINNER,
-            winner: state.curArr.find(cur => cur.point === Math.max(...pointsArr)),
+            winner: state.currentPlayers.find(cur => cur.point === Math.max(...pointsArr)),
         });
     };
 
     useEffect(() => {
         countWinner()
-    },state.curArr);
+    },state.currentPlayers);
 
     return(
         <View id='Won' 

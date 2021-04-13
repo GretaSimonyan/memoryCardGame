@@ -8,30 +8,31 @@ import {
     SET_PLAYERS_CURRENT_ARRAY 
 } from '../../Actions';
 
-// import {SET_PLAYERS_VALUE} from '../../actionCreators'
 function PlayersSelect (){
     const [state, dispatch] = useContext(Context);
     const players = [1,2,3,4]
     
-    let arr = state.plArr.slice();
-    arr.length = state.plValue;
+    let arr = state.players.slice();
+    arr.length = state.playersValue;
 
     const handleNumberChange = e => {
         dispatch({
             type: SET_PLAYERS_VALUE, 
-            plValue: players[e.target.value]
+            playersValue: players[e.target.value]
         });
+
         // dispatch(SET_PLAYERS_VALUE(players[e.target.value]))
+
         dispatch({
             type: SET_CURRENT_PLAYER,
-            currentPlayer: arr[Math.floor(Math.random()*arr.length)],
+            activePlayer: arr[Math.floor(Math.random()*arr.length)],
         });
     };
 
     function currArrChanged(){
         dispatch({
             type: SET_PLAYERS_CURRENT_ARRAY,
-            curArr: arr,
+            currentPlayers: arr,
         });
     };
 
@@ -40,7 +41,7 @@ function PlayersSelect (){
             <View fontSize='25px'> Players Number </View>
             <Select
                 onChange={e => handleNumberChange(e)} 
-                onClick={() => currArrChanged()}
+                onClick={currArrChanged}
             >
                 {
                     players.map((num, key) => 

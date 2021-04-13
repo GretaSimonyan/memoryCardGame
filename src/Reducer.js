@@ -13,7 +13,7 @@ const Reducer = (state, action) => {
         case SET_PLAYERS_VALUE:
             return {
                 ...state,
-                plValue: action.plValue
+                playersValue: action.playersValue
             };
         case SET_WIDTH:
             return {
@@ -28,17 +28,17 @@ const Reducer = (state, action) => {
         case SET_CURRENT_PLAYER:
             return {
                 ...state,
-                currentPlayer: action.currentPlayer
+                activePlayer: action.activePlayer
             };
         case SET_PLAYERS_ARRAY:
             return {
                 ...state,
-                plArr: action.plArr
+                players: action.players
             };
         case SET_PLAYERS_CURRENT_ARRAY:
             return {
                 ...state,
-                curArr: action.curArr
+                currentPlayers: action.currentPlayers
             };
         case SET_WINNER:
             return {

@@ -70,25 +70,25 @@ function GameOn(){
     };
 
     function setNextPlayer(){
-        let indexOfCurrentPlayer = state.curArr.indexOf(state.currentPlayer);
-        if( indexOfCurrentPlayer < state.curArr.length-1){
+        let indexOfActivePlayer = state.currentPlayers.indexOf(state.activePlayer);
+        if( indexOfActivePlayer < state.currentPlayers.length-1){
             dispatch({
                 type: SET_CURRENT_PLAYER,
-                currentPlayer: state.curArr[indexOfCurrentPlayer+1],
+                activePlayer: state.currentPlayers[indexOfActivePlayer+1],
             });
         }else{
             dispatch({
                 type: SET_CURRENT_PLAYER,
-                currentPlayer: state.curArr[0],
+                activePlayer: state.currentPlayers[0],
             });
         };
     };
 
     function setPointsForCurrPlayer(){
-        state.currentPlayer.point = state.currentPlayer.point + 1;
+        state.activePlayer.point = state.activePlayer.point + 1;
         dispatch({
             type: SET_CURRENT_PLAYER,
-            currentPlayer: state.currentPlayer,
+            activePlayer: state.activePlayer,
         });
     };
     
