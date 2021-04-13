@@ -71,17 +71,11 @@ function GameOn(){
 
     function setNextPlayer(){
         let indexOfActivePlayer = state.currentPlayers.indexOf(state.activePlayer);
-        if( indexOfActivePlayer < state.currentPlayers.length-1){
-            dispatch({
-                type: SET_CURRENT_PLAYER,
-                activePlayer: state.currentPlayers[indexOfActivePlayer+1],
-            });
-        }else{
-            dispatch({
-                type: SET_CURRENT_PLAYER,
-                activePlayer: state.currentPlayers[0],
-            });
-        };
+        dispatch({
+            type: SET_CURRENT_PLAYER,
+            activePlayer: ( indexOfActivePlayer < state.currentPlayers.length-1)? 
+                state.currentPlayers[indexOfActivePlayer+1] : state.currentPlayers[0],
+        });
     };
 
     function setPointsForCurrPlayer(){
