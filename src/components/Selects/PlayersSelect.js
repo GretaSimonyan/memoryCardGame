@@ -20,9 +20,7 @@ function PlayersSelect (){
             type: SET_PLAYERS_VALUE, 
             playersValue: players[e.target.value]
         });
-
-        // dispatch(SET_PLAYERS_VALUE(players[e.target.value]))
-
+        
         dispatch({
             type: SET_CURRENT_PLAYER,
             activePlayer: arr[Math.floor(Math.random()*arr.length)],

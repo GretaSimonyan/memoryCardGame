@@ -5,7 +5,7 @@ import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
 import { SET_CURRENT_PLAYER } from '../../Actions';
-import {columns,rows, generate} from './callBacks';
+import {columns, rows, generate} from './callBacks';
 
 function GameOn(){
     const [state, dispatch] = useContext(Context);
