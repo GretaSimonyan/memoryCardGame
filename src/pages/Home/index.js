@@ -2,7 +2,8 @@ import React from "react";
 import { View } from '../../styled';
 import { Route } from 'react-router-dom';
 import { Header, Selects, Board } from '../../components';
-import Navigation  from '../../components/StylesComp/Navigation';
+import Link  from '../../components/StylesComp/NavLink';
+// import { NavLink } from 'react-router-dom';
 import Store from '../../Store';
 
 function Home (){
@@ -17,8 +18,8 @@ function Home (){
                 fontSize='14px'
                 alignI='stretch'
             >
-                <Navigation to='/'>CHANGE SELECTION</Navigation>
-                <Navigation to='/board'>PLAY GAME</Navigation>
+                <Link to='/'>CHANGE SELECTION</Link>
+                <Link to='/board'>PLAY GAME</Link>
             </View>
 
             <Route path='/' exact component={Selects}/>
