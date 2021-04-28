@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Navigation = styled(NavLink)`
+const Link = styled(NavLink)`
 	background-color: #ffffff;
     border: 1px solid #fbb04f;
 	cursor: pointer;
@@ -20,4 +20,4 @@ const Navigation = styled(NavLink)`
         top:1px;
     }
 `;
-export default Navigation;
+export default Link;
