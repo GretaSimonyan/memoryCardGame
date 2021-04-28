@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from '../../styled';
-import PlayersSelect from '../PlayersSelect';
-import BoardHeightSelect from '../BoardHeightSelect';
-import BoardWidthSelect from '../BoardWidthSelect';
+import PlayersSelect from './PlayersSelect';
+import BoardHeightSelect from './BoardHeightSelect';
+import BoardWidthSelect from './BoardWidthSelect';
  
 function Selects(){
     return( 
