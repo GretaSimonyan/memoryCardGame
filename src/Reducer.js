@@ -6,7 +6,7 @@ import {
     SET_PLAYERS_ARRAY,
     SET_PLAYERS_CURRENT_ARRAY,
     SET_WINNER
-} from './Actions';
+} from './actionTypes';
 
 const Reducer = (state, action) => {
     switch (action.type) {
@@ -50,6 +50,11 @@ const Reducer = (state, action) => {
         //         ...state,
         //         posts: state.posts.filter(post => post.id !== action.payload)
         //     };
+        case 'LOADING':
+            return {
+                ...state,
+                load: action.payload
+            };
         default:
             return state;
     }

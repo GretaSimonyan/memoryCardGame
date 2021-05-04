@@ -4,7 +4,7 @@ import { Context } from '../../Store';
 import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
-import { SET_CURRENT_PLAYER } from '../../Actions';
+import { SET_CURRENT_PLAYER } from '../../actionTypes';
 import {columns, rows, generate} from './callBacks';
 
 function GameOn(){
