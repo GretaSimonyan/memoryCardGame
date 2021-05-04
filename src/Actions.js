@@ -1,7 +1,58 @@
-export const SET_PLAYERS_VALUE = 'SET_PLAYERS_VALUE';
-export const SET_WIDTH = 'SET_WIDTH';
-export const SET_HEIGHT = 'SET_HEIGHT';
-export const SET_CURRENT_PLAYER = 'SET_CURRENT_PLAYER';
-export const SET_PLAYERS_ARRAY = 'SET_PLAYERS_ARRAY';
-export const SET_PLAYERS_CURRENT_ARRAY = 'SET_PLAYERS_CURRENT_ARRAY';
-export const SET_WINNER = 'SET_WINNER';
+import {
+    SET_PLAYERS_VALUE,
+    SET_WIDTH,
+    SET_HEIGHT,
+    SET_ACTIVE_PLAYER,
+    SET_PLAYERS_ARRAY,
+    SET_CURRENT_PLAYERS,
+    SET_WINNER
+} from './actionTypes';
+
+export function setPlayersValue(number){
+    return{
+        type: SET_PLAYERS_VALUE,
+        playersValue: number
+    }
+};
+
+export function setWidth(number){
+    return{
+        type: SET_WIDTH,
+        width: number
+    }
+};
+
+export function setHeight(number){
+    return{
+        type: SET_HEIGHT,
+        height: number
+    }
+};
+
+export function setActivePlayer(number){
+    return{
+        type: SET_ACTIVE_PLAYER,
+        activePlayer: number
+    }
+};
+
+export function setPlayers(number){
+    return{
+        type: SET_PLAYERS_ARRAY,
+        players: number
+    }
+};
+
+export function setCurrentPlayers(number){
+    return{
+        type: SET_CURRENT_PLAYERS,
+        currentPlayers: number
+    }
+};
+
+export function setWinner(number){
+    return{
+        type: SET_WINNER,
+        winner: number
+    }
+};
