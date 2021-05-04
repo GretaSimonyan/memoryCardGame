@@ -2,9 +2,9 @@ import {
     SET_PLAYERS_VALUE,
     SET_WIDTH,
     SET_HEIGHT,
-    SET_CURRENT_PLAYER,
+    SET_ACTIVE_PLAYER,
     SET_PLAYERS_ARRAY,
-    SET_PLAYERS_CURRENT_ARRAY,
+    SET_CURRENT_PLAYERS,
     SET_WINNER
 } from './actionTypes';
 
@@ -25,7 +25,7 @@ const Reducer = (state, action) => {
                 ...state,
                 height: action.height
             };
-        case SET_CURRENT_PLAYER:
+        case SET_ACTIVE_PLAYER:
             return {
                 ...state,
                 activePlayer: action.activePlayer
@@ -35,7 +35,7 @@ const Reducer = (state, action) => {
                 ...state,
                 players: action.players
             };
-        case SET_PLAYERS_CURRENT_ARRAY:
+        case SET_CURRENT_PLAYERS:
             return {
                 ...state,
                 currentPlayers: action.currentPlayers
