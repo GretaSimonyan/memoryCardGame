@@ -3,10 +3,10 @@ import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
 import { 
-    SET_PLAYERS_VALUE, 
-    SET_CURRENT_PLAYER, 
-    SET_PLAYERS_CURRENT_ARRAY 
-} from '../../Actions';
+    setPlayersValue,
+    setActivePlayer,
+    setCurrentPlayers
+} from '../../actions';
 
 function PlayersSelect (){
     const [state, dispatch] = useContext(Context);
@@ -16,22 +16,12 @@ function PlayersSelect (){
     arr.length = state.playersValue;
 
     const handleNumberChange = e => {
-        dispatch({
-            type: SET_PLAYERS_VALUE, 
-            playersValue: players[e.target.value]
-        });
-        
-        dispatch({
-            type: SET_CURRENT_PLAYER,
-            activePlayer: arr[Math.floor(Math.random()*arr.length)],
-        });
+        dispatch(setPlayersValue(players[e.target.value]));
+        dispatch(setActivePlayer(arr[Math.floor(Math.random()*arr.length)]))
     };
 
     function currArrChanged(){
-        dispatch({
-            type: SET_PLAYERS_CURRENT_ARRAY,
-            currentPlayers: arr,
-        });
+        dispatch(setCurrentPlayers(arr))
     };
 
     return( 

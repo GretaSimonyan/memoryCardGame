@@ -4,8 +4,8 @@ import { Context } from '../../Store';
 import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
-import { SET_CURRENT_PLAYER } from '../../actionTypes';
-import {columns, rows, generate} from './callBacks';
+import { setActivePlayer } from '../../actions';
+import { columns, rows, generate } from './callBacks';
 
 function GameOn(){
     const [state, dispatch] = useContext(Context);
@@ -71,19 +71,13 @@ function GameOn(){
 
     function setNextPlayer(){
         let indexOfActivePlayer = state.currentPlayers.indexOf(state.activePlayer);
-        dispatch({
-            type: SET_CURRENT_PLAYER,
-            activePlayer: ( indexOfActivePlayer < state.currentPlayers.length-1)? 
-                state.currentPlayers[indexOfActivePlayer+1] : state.currentPlayers[0],
-        });
+        dispatch(setActivePlayer(( indexOfActivePlayer < state.currentPlayers.length-1)? 
+        state.currentPlayers[indexOfActivePlayer+1] : state.currentPlayers[0]))
     };
 
     function setPointsForCurrPlayer(){
         state.activePlayer.point = state.activePlayer.point + 1;
-        dispatch({
-            type: SET_CURRENT_PLAYER,
-            activePlayer: state.activePlayer,
-        });
+        dispatch(setActivePlayer(state.activePlayer));
     };
     
     useEffect(() => {

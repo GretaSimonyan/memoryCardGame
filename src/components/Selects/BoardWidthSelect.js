@@ -2,17 +2,14 @@ import React, { useContext } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
-import { SET_WIDTH } from '../../actionTypes';
+import { setWidth } from  '../../actions';
 
 function BoardWidthSelect (){
     const [state, dispatch] = useContext(Context);
     const widthArr = [2,3,4,5,6,7,8];
 
     const handleNumberChange = e => {
-        dispatch({
-            type: SET_WIDTH,
-            width: widthArr[e.target.value]
-        })
+        dispatch(setWidth(widthArr[e.target.value]))
     };
 
     return(

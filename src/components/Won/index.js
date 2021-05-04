@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Button from '../StylesComp/Button.js';
-import { SET_WINNER } from '../../actionTypes';
+import { setWinner } from '../../actions';
 
 function Won(){
     const [state, dispatch] = useContext(Context);
@@ -10,10 +10,7 @@ function Won(){
     function countWinner(){
         let pointsArr = [];
         state.currentPlayers.map((curr)=> pointsArr.push(curr.point));
-        dispatch({
-            type: SET_WINNER,
-            winner: state.currentPlayers.find(cur => cur.point === Math.max(...pointsArr)),
-        });
+        dispatch(setWinner(state.currentPlayers.find(cur => cur.point === Math.max(...pointsArr))))
     };
 
     useEffect(() => {
