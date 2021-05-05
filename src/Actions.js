@@ -3,7 +3,6 @@ import {
     SET_WIDTH,
     SET_HEIGHT,
     SET_ACTIVE_PLAYER,
-    SET_PLAYERS_ARRAY,
     SET_CURRENT_PLAYERS,
     SET_WINNER
 } from './actionTypes';
@@ -36,12 +35,6 @@ export function setActivePlayer(number){
     }
 };
 
-export function setPlayers(number){
-    return{
-        type: SET_PLAYERS_ARRAY,
-        players: number
-    }
-};
 
 export function setCurrentPlayers(number){
     return{
