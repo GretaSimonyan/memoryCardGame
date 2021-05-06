@@ -13,7 +13,12 @@ function GameOn(){
     let cardsNum = state.height * state.width;
 
     useEffect(()=> {
-        setCards(generate(cardsNum));
+        if( cardsNum % 2 !== 0 ) {
+            alert("Multiple width and height values must be Even number");
+        }else{
+            pictures.length = cardsNum/2;
+        };
+        
     },[cardsNum]);
 
     const [cards, setCards] = useState(cardImages);
