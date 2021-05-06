@@ -1,13 +1,8 @@
 import cardImages from './cards';
 
 const pictures = cardImages.slice();
-export const generate = function generate(cardsNum) {
-    if( cardsNum % 2 !== 0 ) {
-        pictures.length = 2;
-        alert("Multiple width and height values must be Even number");
-    }else{
-        pictures.length = cardsNum/2;
-    };
+export const generate = function(cardsNum) {
+    pictures.length = cardsNum/2;
     pictures.push(...pictures);
 
     let c = pictures.map((image,index) => ({
@@ -21,7 +16,7 @@ export const generate = function generate(cardsNum) {
 
 
 
-export const columns = function columns(width){
+export const columns = function(width){
     let w = '100px 100px'
     for(let i = 1; i <= width-2; i++){
         w += ' 100px'
@@ -29,7 +24,7 @@ export const columns = function columns(width){
     return w
 };
 
-export const rows = function rows(height){
+export const rows = function(height){
     let r = '120px 120px'
     for(let i = 1; i <= height-2; i++){
         r += ' 120px'
