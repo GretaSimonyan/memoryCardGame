@@ -1,5 +1,6 @@
 import React, {createContext, useReducer} from "react";
 import Reducer from './Reducer';
+import cardImages from './components/GameOn/cards';
 
 const initialState = {
     playersValue: 1,
@@ -13,6 +14,10 @@ const initialState = {
     currentPlayers: [{title:"A", point:0}],
     activePlayer: {title:"A", point:0},
     winner: {title:"A", point:0},
+    // load: 'select',
+    firstCard: null,
+    secondCard: null,
+    cards: cardImages,
     error: null
 };
 

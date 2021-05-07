@@ -5,7 +5,10 @@ import {
     SET_ACTIVE_PLAYER,
     SET_PLAYERS,
     SET_CURRENT_PLAYERS,
-    SET_WINNER
+    SET_WINNER,
+    SET_FIRST_CARD,
+    SET_SECOND_CARD,
+    SET_CARDS
 } from './actionTypes';
 
 const Reducer = (state, action) => {
@@ -50,6 +53,21 @@ const Reducer = (state, action) => {
         //         ...state,
         //         posts: state.posts.filter(post => post.id !== action.payload)
         //     };
+        case SET_FIRST_CARD:
+            return{
+                ...state,
+                firstCard: action.firstCard
+            }
+        case SET_SECOND_CARD:
+            return{
+                ...state,
+                secondCard: action.secondCard
+            }
+        case SET_CARDS:
+            return{
+                ...state,
+                cards: action.cards
+            }
         case 'LOADING':
             return {
                 ...state,

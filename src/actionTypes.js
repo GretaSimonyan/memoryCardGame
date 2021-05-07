@@ -5,3 +5,6 @@ export const SET_ACTIVE_PLAYER = 'SET_ACTIVE_PLAYER';
 export const SET_PLAYERS = 'SET_PLAYERS_ARRAY';
 export const SET_CURRENT_PLAYERS = 'SET_CURRENT_PLAYERS';
 export const SET_WINNER = 'SET_WINNER';
+export const SET_FIRST_CARD = 'SET_FIRST_CARD';
+export const SET_SECOND_CARD = 'SET_SECOND_CARD';
+export const SET_CARDS = 'SET_CARDS';
