@@ -4,7 +4,7 @@ import { Context } from '../../Store';
 import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
-import { setActivePlayer } from '../../actions';
+import { setActivePlayer, setFirstCard, setSecondCard } from '../../Actions';
 import { columns, rows, generate } from './callBacks';
 
 function GameOn(){
@@ -16,14 +16,15 @@ function GameOn(){
         if( cardsNum % 2 !== 0 ) {
             alert("Multiple width and height values must be Even number");
         }else{
-            pictures.length = cardsNum/2;
+            setCards(generate(cardsNum));
         };
-        
     },[cardsNum]);
 
     const [cards, setCards] = useState(cardImages);
-    const [firstCard, setFirstCard] = useState(null);
-	const [secondCard, setSecondCard] = useState(null);
+    // const [firstCard, setFirstCard] = useState(null);
+    let firstCard = state.firstCard;
+    let secondCard = state.secondCard;
+	// const [secondCard, setSecondCard] = useState(null);
 
     function cardIsFlipped(cardId, isFlipped) {
 		setCards(prev => prev.map(c => {
@@ -52,8 +53,10 @@ function GameOn(){
         cardCanFlip(secondCard.id, false);
         cardIsFlipped(firstCard.id, true);
 		cardIsFlipped(secondCard.id, true);
-        setFirstCard(null);
-        setSecondCard(null);
+        // setFirstCard(null);
+        dispatch(setFirstCard(null));
+        // setSecondCard(null);
+        dispatch(setSecondCard(null));
         setPointsForCurrPlayer();
     };
 
@@ -68,8 +71,10 @@ function GameOn(){
         cardCanFlip(firstCard.id, true);
         cardCanFlip(secondCard.id, true);
 
-        setFirstCard(null);
-        setSecondCard(null);
+        // setFirstCard(null);
+        dispatch(setFirstCard(null));
+        // setSecondCard(null);
+        dispatch(setSecondCard(null));
 
         setNextPlayer();
     };
@@ -93,10 +98,13 @@ function GameOn(){
 
     function handleClick(pic) {
 		if (!pic.canFlip) return;
-        (firstCard) ? setSecondCard(pic) : setFirstCard(pic);
+        // (firstCard) ? setSecondCard(pic) : setFirstCard(pic);
+        (firstCard) ? dispatch(setSecondCard(pic)) : dispatch(setFirstCard(pic));
+
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
+    console.log(cards)
 
     return(
         <>
