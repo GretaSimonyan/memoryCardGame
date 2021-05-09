@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
-import { setHeight } from  '../../actions';
+import { setHeight } from  '../../Actions';
 
 function BoardHeightSelect (){
     const [state, dispatch] = useContext(Context);

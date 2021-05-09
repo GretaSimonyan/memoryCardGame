@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
-import { setWidth } from  '../../actions';
+import { setWidth } from  '../../Actions';
 
 function BoardWidthSelect (){
     const [state, dispatch] = useContext(Context);

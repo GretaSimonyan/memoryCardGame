@@ -6,7 +6,7 @@ import {
     setPlayersValue,
     setActivePlayer,
     setCurrentPlayers
-} from '../../actions';
+} from '../../Actions';
 
 function PlayersSelect (){
     const [state, dispatch] = useContext(Context);

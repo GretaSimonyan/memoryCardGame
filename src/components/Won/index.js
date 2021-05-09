@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Button from '../StylesComp/Button.js';
-import { setWinner } from '../../actions';
+import { setWinner } from '../../Actions';
 
 function Won(){
     const [state, dispatch] = useContext(Context);
