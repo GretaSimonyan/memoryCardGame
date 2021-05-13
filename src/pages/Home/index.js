@@ -1,21 +1,16 @@
 import React, { useContext } from "react";
-import { View } from '../../styled';
-import { Route } from 'react-router-dom';
-import { Header, Selects, Board } from '../../components';
-import Link  from '../../components/StylesComp/NavLink';
-// import { NavLink } from 'react-router-dom';
-// import Store from '../../Store';
 import { Context } from '../../Store';
+import { setView } from '../../Actions';
+import { View } from '../../styled';
+import { Header, Selects, Board } from '../../components';
+import Link  from '../../components/StylesComp/Link';
 
 function Home (){
     const [state, dispatch] = useContext(Context);
     function handlClick(e) {
-        // dispatch({
-        //     type: 'LOADING',
-        //     load: e.target.value
-        // })
-        console.log(e.target.href)
+        dispatch(setView(e.target.outerText));
     }
+
     return(
         <>
             <Header/>
@@ -27,13 +22,10 @@ function Home (){
                 fontSize='14px'
                 alignI='stretch'
             >
-                <Link to='/'>CHANGE SELECTION</Link>
-                <Link to='/board'>PLAY GAME</Link>
-                {/* <a href='#' onClick={(e) => handlClick(e)} >CHANGE SELECTION</a>
-                <a href='/board' onClick={(e) => handlClick(e)} >PLAY GAME</a> */}
+                <Link href='/selects' onClick={(e) => handlClick(e)} >CHANGE SELECTION</Link>
+                <Link href='/board' onClick={(e) => handlClick(e)} >PLAY GAME</Link>
             </View>
-            <Route path='/' exact component={Selects}/>
-            <Route path='/board' component={Board}/>
+            {(state.view === 'CHANGE SELECTION') ? <Selects/> : <Board/>}
         </>
     )
 }
