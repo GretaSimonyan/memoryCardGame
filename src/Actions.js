@@ -7,7 +7,8 @@ import {
     SET_WINNER,
     SET_FIRST_CARD,
     SET_SECOND_CARD,
-    SET_CARDS
+    SET_CARDS,
+    SET_VIEW
 } from './actionTypes';
 
 export function setPlayersValue(number){
@@ -71,3 +72,9 @@ export function setCards(cards){
         cards: cards
     }
 };
+export function setView(str){
+    return{
+        type: SET_VIEW,
+        view: str
+    }
+}

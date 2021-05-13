@@ -8,7 +8,8 @@ import {
     SET_WINNER,
     SET_FIRST_CARD,
     SET_SECOND_CARD,
-    SET_CARDS
+    SET_CARDS,
+    SET_VIEW
 } from './actionTypes';
 
 const Reducer = (state, action) => {
@@ -68,10 +69,10 @@ const Reducer = (state, action) => {
                 ...state,
                 cards: action.cards
             }
-        case 'LOADING':
+        case SET_VIEW:
             return {
                 ...state,
-                load: action.payload
+                view: action.view
             };
         default:
             return state;

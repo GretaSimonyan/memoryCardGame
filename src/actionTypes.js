@@ -8,3 +8,4 @@ export const SET_WINNER = 'SET_WINNER';
 export const SET_FIRST_CARD = 'SET_FIRST_CARD';
 export const SET_SECOND_CARD = 'SET_SECOND_CARD';
 export const SET_CARDS = 'SET_CARDS';
+export const SET_VIEW = 'SET_VIEW';

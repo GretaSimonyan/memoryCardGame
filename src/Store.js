@@ -14,7 +14,7 @@ const initialState = {
     currentPlayers: [{title:"A", point:0}],
     activePlayer: {title:"A", point:0},
     winner: {title:"A", point:0},
-    // load: 'select',
+    view: 'CHANGE SELECTION',
     firstCard: null,
     secondCard: null,
     cards: cardImages,
