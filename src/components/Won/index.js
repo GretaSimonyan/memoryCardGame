@@ -1,20 +1,17 @@
 import React, { useContext, useEffect } from "react";
-import { View } from '../../styled';
 import { Context } from '../../Store';
-import Button from '../StylesComp/Button.js';
 import { setWinner } from '../../Actions';
+import { View } from '../../styled';
+import Button from '../StylesComp/Button.js';
 
 function Won(){
     const [state, dispatch] = useContext(Context);
 
-    function countWinner(){
-        let pointsArr = [];
-        state.currentPlayers.map((curr)=> pointsArr.push(curr.point));
-        dispatch(setWinner(state.currentPlayers.find(cur => cur.point === Math.max(...pointsArr))))
-    };
+    let points = [];
+    state.currentPlayers.map((curr)=> points.push(curr.point));
 
     useEffect(() => {
-        countWinner()
+        dispatch(setWinner(state.currentPlayers.find(cur => cur.point === Math.max(...points))));
     },state.currentPlayers);
 
     return(
