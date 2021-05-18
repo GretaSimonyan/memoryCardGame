@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { View } from '../../styled';
 import { Context } from '../../Store';
+import { setActivePlayer, setFirstCard, setSecondCard,  } from '../../Actions';
+import { View } from '../../styled';
 import Card from '../StylesComp/Card';
 import cardImages from './cards';
 import Won from '../Won';
-import { setActivePlayer, setFirstCard, setSecondCard } from '../../Actions';
-import { columns, rows, generate } from './callBacks';
+import { columns, rows, generate } from './utils';
 
 function GameOn(){
     const [state, dispatch] = useContext(Context);
@@ -21,13 +21,13 @@ function GameOn(){
     },[cardsNum]);
 
     const [cards, setCards] = useState(cardImages);
-    // const [firstCard, setFirstCard] = useState(null);
+    // let cards = state.cards
     let firstCard = state.firstCard;
     let secondCard = state.secondCard;
-	// const [secondCard, setSecondCard] = useState(null);
 
     function cardIsFlipped(cardId, isFlipped) {
 		setCards(prev => prev.map(c => {
+            console.log({...c, isFlipped})
 			if (c.id !== cardId)
 				return c;
 			return {...c, isFlipped};
@@ -53,9 +53,7 @@ function GameOn(){
         cardCanFlip(secondCard.id, false);
         cardIsFlipped(firstCard.id, true);
 		cardIsFlipped(secondCard.id, true);
-        // setFirstCard(null);
         dispatch(setFirstCard(null));
-        // setSecondCard(null);
         dispatch(setSecondCard(null));
         setPointsForCurrPlayer();
     };
@@ -71,9 +69,7 @@ function GameOn(){
         cardCanFlip(firstCard.id, true);
         cardCanFlip(secondCard.id, true);
 
-        // setFirstCard(null);
         dispatch(setFirstCard(null));
-        // setSecondCard(null);
         dispatch(setSecondCard(null));
 
         setNextPlayer();
@@ -98,19 +94,17 @@ function GameOn(){
 
     function handleClick(pic) {
 		if (!pic.canFlip) return;
-        // (firstCard) ? setSecondCard(pic) : setFirstCard(pic);
         (firstCard) ? dispatch(setSecondCard(pic)) : dispatch(setFirstCard(pic));
 
         cardIsFlipped(pic.id, true);
         cardCanFlip(pic.id, false);
     };
-    console.log(cards)
 
     return(
         <>
             <View id='gameOn' grid gap='5px 5px'
-                gTC={columns(state.width)}
-                gTR={rows(state.height)}
+                gTC={ columns(state.width) }
+                gTR={ rows(state.height) }
             >
                 {cards.map((pic,index) => 
                     <Card 
