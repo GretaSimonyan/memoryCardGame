@@ -1,7 +1,7 @@
 import cardImages from './cards';
 
 const pictures = cardImages.slice();
-export const generate = function(cardsNum) {
+export const generate = (cardsNum) => {
     pictures.length = cardsNum/2;
     pictures.push(...pictures);
 
@@ -15,8 +15,7 @@ export const generate = function(cardsNum) {
 };
 
 
-
-export const columns = function(width){
+export const columns = (width) => {
     let w = '100px 100px'
     for(let i = 1; i <= width-2; i++){
         w += ' 100px'
@@ -24,7 +23,7 @@ export const columns = function(width){
     return w
 };
 
-export const rows = function(height){
+export const rows = (height) => {
     let r = '120px 120px'
     for(let i = 1; i <= height-2; i++){
         r += ' 120px'
