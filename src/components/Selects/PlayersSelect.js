@@ -28,7 +28,7 @@ function PlayersSelect (){
         <View grid gap='15px'>
             <View fontSize='25px'> Players Number </View>
             <Select
-                onChange={e => handleNumberChange(e)} 
+                onChange={handleNumberChange} 
                 onClick={currArrChanged}
             >
                 {
