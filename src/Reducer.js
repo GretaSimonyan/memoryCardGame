@@ -17,62 +17,57 @@ const Reducer = (state, action) => {
         case SET_PLAYERS_VALUE:
             return {
                 ...state,
-                playersValue: action.playersValue
+                playersValue: action.payload
             };
         case SET_WIDTH:
             return {
                 ...state,
-                width: action.width
+                width: action.payload
             };
         case SET_HEIGHT:
             return {
                 ...state,
-                height: action.height
+                height: action.payload
             };
         case SET_ACTIVE_PLAYER:
             return {
                 ...state,
-                activePlayer: action.activePlayer
+                activePlayer: action.payload
             };
         case SET_PLAYERS:
             return {
                 ...state,
-                players: action.players
+                players: action.payload
             };
         case SET_CURRENT_PLAYERS:
             return {
                 ...state,
-                currentPlayers: action.currentPlayers
+                currentPlayers: action.payload
             };
         case SET_WINNER:
             return {
                 ...state,
-                winner: action.winner
+                winner: action.payload
             }
-        // case 'REMOVE':
-        //     return {
-        //         ...state,
-        //         posts: state.posts.filter(post => post.id !== action.payload)
-        //     };
         case SET_FIRST_CARD:
             return{
                 ...state,
-                firstCard: action.firstCard
+                firstCard: action.payload
             }
         case SET_SECOND_CARD:
             return{
                 ...state,
-                secondCard: action.secondCard
+                secondCard: action.payload
             }
         case SET_CARDS:
             return{
                 ...state,
-                cards: action.cards
+                cards: action.payload
             }
         case SET_VIEW:
             return {
                 ...state,
-                view: action.view
+                view: action.payload
             };
         default:
             return state;

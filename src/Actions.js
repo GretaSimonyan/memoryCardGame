@@ -14,28 +14,28 @@ import {
 export function setPlayersValue(number){
     return{
         type: SET_PLAYERS_VALUE,
-        playersValue: number
+        payload: number
     }
 };
 
 export function setWidth(number){
     return{
         type: SET_WIDTH,
-        width: number
+        payload: number
     }
 };
 
 export function setHeight(number){
     return{
         type: SET_HEIGHT,
-        height: number
+        payload: number
     }
 };
 
 export function setActivePlayer(number){
     return{
         type: SET_ACTIVE_PLAYER,
-        activePlayer: number
+        payload: number
     }
 };
 
@@ -43,38 +43,38 @@ export function setActivePlayer(number){
 export function setCurrentPlayers(arr){
     return{
         type: SET_CURRENT_PLAYERS,
-        currentPlayers: arr
+        payload: arr
     }
 };
 
 export function setWinner(number){
     return{
         type: SET_WINNER,
-        winner: number
+        payload: number
     }
 };
 
 export function setFirstCard(card){
     return{
         type: SET_FIRST_CARD,
-        firstCard: card
+        payload: card
     }
 };
 export function setSecondCard(card){
     return{
         type: SET_SECOND_CARD,
-        secondCard: card
+        payload: card
     }
 };
 export function setCards(cards){
     return{
         type: SET_CARDS,
-        cards: cards
+        payload: cards
     }
 };
 export function setView(str){
     return{
         type: SET_VIEW,
-        view: str
+        payload: str
     }
 }
