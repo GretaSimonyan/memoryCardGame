@@ -22,8 +22,8 @@ function Home (){
         fontSize='14px'
         alignI='stretch'
       >
-        <Link href='/selects' onClick={(e) => handlClick(e)} >CHANGE SELECTION</Link>
-        <Link href='/board' onClick={(e) => handlClick(e)} >PLAY GAME</Link>
+        <Link href='/selects' onClick={handlClick} >CHANGE SELECTION</Link>
+        <Link href='/board' onClick={handlClick} >PLAY GAME</Link>
       </View>
       {(state.view === 'CHANGE SELECTION') ? <Selects/> : <Board/>}
     </>
