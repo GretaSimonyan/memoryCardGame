@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { View } from '../../styled';
 import { Context } from '../../Store';
 import Select from '../StylesComp/Select';
@@ -11,26 +11,22 @@ import {
 function PlayersSelect (){
   const [state, dispatch] = useContext(Context);
   const players = [1,2,3,4]
-    
-  const statePlayers = [...state.players];
-  statePlayers.length = state.playersValue;
+
+  useEffect(() => {
+    dispatch(setCurrentPlayers(state.playersValue));
+  }, []);
 
   const handleNumberChange = e => {
-    dispatch(setPlayersValue(players[e.target.value]));
-    const randomPlayer = statePlayers.sort(() => 0.5 - Math.random())[0];
-    dispatch(setActivePlayer(randomPlayer));
-  };
-
-  function currArrChanged(){
-    dispatch(setCurrentPlayers(statePlayers));
+    dispatch(setCurrentPlayers(+e.target.value));
   };
 
   return( 
     <View grid gap='15px'>
       <View fontSize='25px'> Players Number </View>
       <Select
-        onChange={handleNumberChange} 
-        onClick={currArrChanged}
+        onChange={handleNumberChange}
+        value={state.playersValue}
+        // onClick={currArrChanged}
       >
         {
           players.map((num) => 

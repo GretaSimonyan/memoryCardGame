@@ -1,5 +1,5 @@
 import {
-  SET_PLAYERS_VALUE,
+  // SET_PLAYERS_VALUE,
   SET_WIDTH,
   SET_HEIGHT,
   SET_ACTIVE_PLAYER,
@@ -14,12 +14,12 @@ import {
   INCREMENT_ACTIVE_PLAYER_POINT,
 } from './actionTypes';
 
-export function setPlayersValue(number){
-  return{
-    type: SET_PLAYERS_VALUE,
-    payload: number
-  }
-};
+// export function setPlayersValue(number){
+//   return{
+//     type: SET_PLAYERS_VALUE,
+//     payload: number
+//   }
+// };
 
 export function setWidth(number){
   return{
@@ -42,10 +42,10 @@ export function setActivePlayer(player){
   }
 };
 
-export function setCurrentPlayers(arr){
+export function setCurrentPlayers(numberOfPlayers){
   return{
     type: SET_CURRENT_PLAYERS,
-    payload: arr
+    payload: numberOfPlayers
   }
 };
 
